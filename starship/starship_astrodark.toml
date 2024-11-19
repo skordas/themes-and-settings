@@ -1,0 +1,63 @@
+format = """
+$sudo\
+$username\
+$sudo\
+[](bg:#F5983A fg:#1A1D23)\
+$time\
+[](fg:#F5983A bg:#DFAB25)\
+$git_status\
+[](fg:#DFAB25 bg:#87C05F)\
+$git_branch\
+[](fg:#87C05F bg:#4AC2B8)\
+$directory\
+[ ](fg:#4AC2B8)\
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+[sudo]
+style = 'bg:#FF838B fg:#1A1D23'
+symbol = ''
+format = '[ $symbol ]($style)'
+disabled = false
+
+[time]
+disabled = false
+time_format = "%I:%M %p"
+style = "bg:#F5983A fg:#1A1D23"
+format = '[   $time ]($style)'
+
+[username]
+show_always = true
+style_user = "bg:#1A1D23 fg:#FF838B"
+style_root = "bg:#1A1D23 fg:#FF838B"
+format = '[ 󱄛  ]($style)'
+
+[git_status]
+style = "bg:#DFAB25 fg:#1A1D23"
+format = '[ $all_status $ahead_behind ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:#87C05F fg:#1A1D23"
+format = '[ $symbol $branch ]($style)'
+
+[directory]
+style = "bg:#4AC2B8 fg:#1A1D23"
+format = "[   $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/" 
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"documents" = "󰈙 "
+"downloads" = " "
+"music" = " "
+"pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
