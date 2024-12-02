@@ -1,16 +1,17 @@
 # Setting up and configure hyprland
-
 First install all what you need
 
 
 ```
-sudo dnf install kitty hyprland rofi-wayland
+sudo dnf install kitty hyprland hyprpaper rofi-wayland SwayNotificationCenter grim slurp hyprpicker hyprlock
 ```
 ## Configurations
 
 - [kitty](https://github.com/skordas/themes-and-settings/tree/main/kitty)
 
 - [hyprland](https://github.com/skordas/themes-and-settings/tree/main/hyprland)
+
+- [hyprshot](https://github.com/Gustash/Hyprshot) - Just copy to your /usr/bin/
 
 - rofi-wayland - WIP
 
