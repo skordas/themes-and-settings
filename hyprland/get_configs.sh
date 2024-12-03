@@ -6,3 +6,4 @@ wget https://raw.githubusercontent.com/skordas/themes-and-settings/refs/heads/ma
 # TODO
 # add hyprpaper
 # add hyprlock
+# add hypridle
