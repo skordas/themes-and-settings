@@ -29,3 +29,6 @@ To copy config files to commit use:
 ./gather_configs.sh
 
 ```
+
+TODO
+add wlogout
