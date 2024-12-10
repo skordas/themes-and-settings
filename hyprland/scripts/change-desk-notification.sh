@@ -10,6 +10,7 @@ d7=" [  VII  ]"
 d8="[  VIII  ]"
 d9="  [  IX  ]"
 
+sleep 0.050
 desktop=$(hyprctl activeworkspace -j | jq .id)
 display=""
 if [ $desktop -eq "1" ] || [ $desktop -eq "11" ]
@@ -40,4 +41,4 @@ elif [ $desktop -eq "9" ] || [ $desktop -eq "19" ]
 then
   display=$d9
 fi 
-hyprctl notify -1 1000 "rgb(b0b394)" "fontsize:25 $display"
+hyprctl notify -1 1000 "rgb(b0b394)" "fontsize:18 $display"
