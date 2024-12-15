@@ -2,6 +2,18 @@
 
 lapWork=0
 verWork=10
+firstWorkspace=""
+secondWorkspace=""
+
+function focus_history() {
+  focus_history=$(hyprctl clients -j | jq -c ".[] | select( .workspace.id | contains(${1}))" | jq '.focusHistoryID' | sort -n | head -n1)
+  # If empty screen, then return high number to be sure it's last activity
+  if [[ $focus_history -eq "" ]]
+  then
+    focus_history=100
+  fi
+  echo $focus_history
+}
 
 currWork=$(hyprctl activeworkspace -j | jq ".id")
 
@@ -28,5 +40,17 @@ then
 fi
 verWork=$(($lapWork+10))
 
-hyprctl dispatch workspace $verWork
-hyprctl dispatch workspace $lapWork
+focus_hist_lap=$(focus_history $lapWork)
+focus_hist_ver=$(focus_history $verWork)
+
+if [[ $focus_hist_lap -lt $focus_hist_ver ]] || [[ $focus_hist_lap -eq $focus_hist_ver ]]
+then
+  firstWorkspace=$lapWork
+  secondWorkspace=$verWork
+else
+  firstWorkspace=$verWork
+  secondWorkspace=$lapWork
+fi
+
+hyprctl dispatch workspace $secondWorkspace
+hyprctl dispatch workspace $firstWorkspace

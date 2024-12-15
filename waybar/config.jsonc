@@ -13,17 +13,17 @@
         "clock"
     ],
     "modules-right": [
-        "idle_inhibitor",
+        // "idle_inhibitor",
         "pulseaudio",
-        "network",
-        "power-profiles-daemon",
-        "cpu",
-        "memory",
-        "temperature",
-        "backlight",
+        // "network",
+        // "power-profiles-daemon",
+        // "cpu",
+        // "memory",
+        // "temperature",
+        // "backlight",
         "battery",
-        "tray",
-        "bluetooth"
+        "tray"
+        // "bluetooth"
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -91,6 +91,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M %p\n%m/%d/%Y}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
