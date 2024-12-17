@@ -21,6 +21,7 @@ if [[ $currWork -gt 10 ]]
 then
   currWork=$(($currWork-10))
 fi
+
 if [[ $1 == "l" ]]
 then
   if [[ $currWork -eq 1 ]]
@@ -37,6 +38,8 @@ then
   else
     lapWork=$(($currWork+1))
   fi
+else
+  lapWork=$1
 fi
 verWork=$(($lapWork+10))
 
@@ -54,3 +57,6 @@ fi
 
 hyprctl dispatch workspace $secondWorkspace
 hyprctl dispatch workspace $firstWorkspace
+
+sleep 0.05
+hyprctl notify -1 2000 "rgb(b0b394)" "fontsize:16 $(echo -e "╭─────────────╮\n│             │\n│      ${lapWork}      │\n│             │\n╰─────────────╯")"
