@@ -10,3 +10,4 @@ cp ~/.config/waybar/* ../waybar/
 
 # TODO
 # setup starship
+# dunst

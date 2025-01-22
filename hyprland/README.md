@@ -3,7 +3,7 @@ First install all what you need
 
 
 ```
-sudo dnf install kitty hyprland hyprpaper rofi-wayland SwayNotificationCenter grim slurp hyprpicker hyprlock hypridle waybar
+sudo dnf install kitty hyprland hyprpaper rofi-wayland dunst grim slurp hyprpicker hyprlock hypridle waybar
 ```
 ## Configurations
 

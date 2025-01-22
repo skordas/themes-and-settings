@@ -59,4 +59,6 @@ hyprctl dispatch workspace $secondWorkspace
 hyprctl dispatch workspace $firstWorkspace
 
 sleep 0.05
-hyprctl notify -1 2000 "rgb(b0b394)" "fontsize:16 $(echo -e "╭─────────────╮\n│             │\n│      ${lapWork}      │\n│             │\n╰─────────────╯")"
+# hyprctl notify -1 2000 "rgb(b0b394)" "fontsize:16 $(echo -e "╭─────────────╮\n│             │\n│      ${lapWork}      │\n│             │\n╰─────────────╯")"
+dunstify -a "Desktop" -u low -t 2000 "$(echo -e "╭─────────────╮\n│             │\n│      ${lapWork}      │\n│             │\n╰─────────────╯")"
+

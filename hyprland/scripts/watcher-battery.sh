@@ -14,6 +14,7 @@ status=""
 previous_status=""
 low_threshold=15
 critical_threshold=5
+bell="$HOME/.sounds/not.wav"
 
 function time_left() {
     h=$(echo "$1/1" | bc)
@@ -47,6 +48,7 @@ do
     status="FULL"
     if [[ $status != $previous_status ]]
     then
+      aplay -q $bell &
       notify-send -t 10000 -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-full.png "$(echo "$battery_status $battery_percentage%")"
     fi
   fi
@@ -57,6 +59,7 @@ do
     status="NOT_CHARGING"
     if [[ $status != $previous_status ]]
     then
+      aplay -q $bell &
       notify-send -t 10000 -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-full-charged.png "$(echo "$battery_status $battery_percentage%")"
     fi
   fi
@@ -69,6 +72,7 @@ do
     then
       brightnessctl set 100%
       time_to_full=$(time_left $(echo "($battery_full-$energy_now)/$energy_rate" | bc -l))
+      aplay -q $bell &
       notify-send -t 10000 -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-good-charging.png "$(echo "$battery_status $battery_percentage%")" "$(echo "Time to full: $time_to_full")"
     fi
   fi
@@ -80,6 +84,7 @@ do
     if [[ $status != $previous_status ]]
     then
       time_to_empty=$(time_left $(echo "$energy_now/$energy_rate" | bc -l))
+      aplay -q $bell &
       notify-send -t 10000 -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-good.png "$(echo "$battery_status $battery_percentage%")" "$(echo "Time to empty: $time_to_empty")"
     fi
   fi
@@ -92,6 +97,7 @@ do
     then
       brightnessctl set 50%
       time_to_empty=$(time_left $(echo "$energy_now/$energy_rate" | bc -l))
+      aplay -q $bell &
       notify-send -t 20000 -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-low.png "$(echo "$battery_status $battery_percentage%")" "$(echo "Time to empty: $time_to_empty")"
     fi
   fi
@@ -104,6 +110,7 @@ do
     then
       brightnessctl set 25%
       time_to_empty=$(time_left $(echo "$energy_now/$energy_rate" | bc -l))
+      aplay -q $bell &
       notify-send -u critical -i /usr/share/icons/AdwaitaLegacy/48x48/legacy/battery-caution.png "$(echo "$battery_status $battery_percentage%")" "$(echo "Time to empty: $time_to_empty")"
     fi
   fi

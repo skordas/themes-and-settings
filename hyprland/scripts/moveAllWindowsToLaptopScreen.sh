@@ -14,9 +14,9 @@ do
   then
     moveTo=$(($workspaceId-10))
     hyprctl dispatch workspace $workspaceId
-    sleep 1
+    sleep 0.5
     hyprctl dispatch movetoworkspace $moveTo,address:$address
-    sleep 1
+    sleep 0.5
   fi
   ((i++))
 done
