@@ -12,7 +12,7 @@ function focus_history() {
   then
     focus_history=100
   fi
-  echo $focus_history
+  echo "$focus_history"
 }
 
 currWork=$(hyprctl activeworkspace -j | jq ".id")
